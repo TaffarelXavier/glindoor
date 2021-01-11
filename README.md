@@ -2169,3 +2169,7 @@ Se o usuário não estiver ativo, retornará: USER_ACTIVE; caso contrário, USER
 ```
 TOKEN_INVALID
 ```
+
+---
+
+Fim
