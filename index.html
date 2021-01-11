@@ -1,131 +1,153 @@
 <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Documenta&ccedil;&atilde;o da api do Delivery</title>
-        <style>
-</style>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css" integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
-<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
-<style>
-            body {
-                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
-                font-size: 14px;
-                line-height: 1.6;
-            }
-        </style>
-        <style>
-.task-list-item { list-style-type: none; } .task-list-item-checkbox { margin-left: -20px; vertical-align: middle; }
-</style>
-        
-        <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
-        
-    </head>
-    <body class="vscode-body vscode-light">
-        <h1 id="documentação-da-api-do-delivery">Documentação da api do Delivery</h1>
-<p>Glossário:</p>
-<ul>
-<li><strong><code>Clientes</code></strong> - são os clientes que comprarão no sistema.</li>
-<li><strong><code>Parceiros</code></strong> - são as lojas cadastradas e aptas para vendas.</li>
-<li><strong><code>RECURSO</code></strong> - é qualquer dado pertecente a um determinado outro recurso. Por exemplo, digamos que um registro de vendas da tabela <code>orders</code> é um recurso de uma empresa. Por exemplo, os <code>pedidos</code> são um recurso de um cliente ou de uma loja.</li>
-<li><strong><code>QUERY</code></strong> - são os parâmetros passados na url, que é diferente do params, que são passados diretamente na rota e faz parte dela (rota). Por exemplo:-
-<ul>
-<li><code>params: users/1</code></li>
-<li><code>query: users?id=1</code>.</li>
-</ul>
-</li>
-</ul>
-<hr>
-<blockquote>
-<div style="font-size:40px; text-align:center"># APIREST</div>
-</blockquote>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/company/upadate-catalogo-url</strong> | JWT - Obrigatório</p>
-</blockquote>
-<h3 id="atualiza-a-url-de-uma-empresa">Atualiza a url de uma empresa</h3>
-<h3 id="parâmetros">Parâmetros</h3>
-<ul>
-<li>url_site
-<ul>
-<li>A nova url</li>
-</ul>
-</li>
-<li>company_id
-<ul>
-<li>O id da empresa</li>
-</ul>
-</li>
-</ul>
-<h3 id="respostas">Respostas</h3>
-<ul>
-<li>A url já existe</li>
-</ul>
-<pre><code><code><div>{
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Documenta&ccedil;&atilde;o da api do Delivery</title>
+  <style>
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.10.2/dist/katex.min.css"
+    integrity="sha384-yFRtMMDnQtDRO8rLpMIKrtPCD5jdktao2TV19YiZYWMDkUR5GQZR/NOVTdquEx1j" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet"
+    type="text/css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+  <link rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+  </style>
+  <style>
+    .task-list-item {
+      list-style-type: none;
+    }
+
+    .task-list-item-checkbox {
+      margin-left: -20px;
+      vertical-align: middle;
+    }
+    .method{
+      border-radius: 4px;
+      box-shadow: 0px 0px 4px 1px rgba(0,0,0,0.15);
+      padding: 2px;
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+
+</head>
+
+<body class="vscode-body vscode-light">
+  <h1 id="documentação-da-api-do-delivery">Documentação da api do Delivery</h1>
+  <p>Glossário:</p>
+  <ul>
+    <li><strong><code>Clientes</code></strong> - são os clientes que comprarão no sistema.</li>
+    <li><strong><code>Parceiros</code></strong> - são as lojas cadastradas e aptas para vendas.</li>
+    <li><strong><code>RECURSO</code></strong> - é qualquer dado pertecente a um determinado outro recurso. Por exemplo,
+      digamos que um registro de vendas da tabela <code>orders</code> é um recurso de uma empresa. Por exemplo, os
+      <code>pedidos</code> são um recurso de um cliente ou de uma loja.</li>
+    <li><strong><code>QUERY</code></strong> - são os parâmetros passados na url, que é diferente do params, que são
+      passados diretamente na rota e faz parte dela (rota). Por exemplo:-
+      <ul>
+        <li><code>params: users/1</code></li>
+        <li><code>query: users?id=1</code>.</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <div style="font-size:40px; text-align:center"># APIREST</div>
+  </blockquote>
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/company/upadate-catalogo-url</strong> | JWT - Obrigatório</p>
+  </blockquote>
+  <h3 id="atualiza-a-url-de-uma-empresa">Atualiza a url de uma empresa</h3>
+  <h3 id="parâmetros">Parâmetros</h3>
+  <ul>
+    <li>url_site
+      <ul>
+        <li>A nova url</li>
+      </ul>
+    </li>
+    <li>company_id
+      <ul>
+        <li>O id da empresa</li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="respostas">Respostas</h3>
+  <ul>
+    <li>A url já existe</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;URL_ALREADY_EXISTS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Não existe uma empresa para o <code>id</code> passado</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Não existe uma empresa para o <code>id</code> passado</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;USER_NOT_FOUND&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;message&quot;: &quot;SUCCESS&quot;
 }
 </div></code></code></pre>
-<hr>
-<p><code>GET</code> <strong>company/categories-by-company</strong></p>
-<h3 id="busca-as-categorias-criadas-pela-empresa-dona-do-recurso">Busca as categorias criadas pela empresa dona do recurso.</h3>
-<h3 id="parâmetros-1">Parâmetros</h3>
-<ul>
-<li><code>company_id</code> <em><code>(query)</code></em>
-<ul>
-<li>O <code>id</code> da empresa dona do recurso</li>
-</ul>
-</li>
-<li><code>place</code> <em><code>(query)</code></em>
-<ul>
-<li>O lugar onde será mostrada, que pode ser:
-<ul>
-<li><strong><code>parceiro</code></strong>
-<ul>
-<li>Será mostrado no <code>aplicativo</code> na área do parceiro</li>
-</ul>
-</li>
-<li><strong><code>dashboard</code></strong>
-<ul>
-<li>Será mostrado no <code>dashboard</code></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="respostas-1">Respostas</h3>
-<ul>
-<li><strong>O id da empresa passado não foi encontrado</strong></li>
-</ul>
-<pre><code><code><div>{
+  <hr>
+  <p><code class="method">GET</code> <strong>company/categories-by-company</strong></p>
+  <h3 id="busca-as-categorias-criadas-pela-empresa-dona-do-recurso">Busca as categorias criadas pela empresa dona do
+    recurso.</h3>
+  <h3 id="parâmetros-1">Parâmetros</h3>
+  <ul>
+    <li><code>company_id</code> <em><code>(query)</code></em>
+      <ul>
+        <li>O <code>id</code> da empresa dona do recurso</li>
+      </ul>
+    </li>
+    <li><code>place</code> <em><code>(query)</code></em>
+      <ul>
+        <li>O lugar onde será mostrada, que pode ser:
+          <ul>
+            <li><strong><code>parceiro</code></strong>
+              <ul>
+                <li>Será mostrado no <code>aplicativo</code> na área do parceiro</li>
+              </ul>
+            </li>
+            <li><strong><code>dashboard</code></strong>
+              <ul>
+                <li>Será mostrado no <code>dashboard</code></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="respostas-1">Respostas</h3>
+  <ul>
+    <li><strong>O id da empresa passado não foi encontrado</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;Empresa não encontrada&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>[
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;name&quot;: &quot;GRÃOS&quot;,
     &quot;id&quot;: 1,
@@ -133,25 +155,27 @@
   }
 ]
 </div></code></code></pre>
-<hr>
-<p><code>GET</code> <strong>/company/categories</strong></p>
-<h3 id="mostra-todas-as-categorias-sem-exceção-de-uma-empresa">Mostra todas as categorias, sem exceção, de uma empresa.</h3>
-<h3 id="parâmetros-2">Parâmetros</h3>
-<ul>
-<li>company_id
-<ul>
-<li>O <code>id</code> da empresa dona do recurso</li>
-</ul>
-</li>
-</ul>
-<h3 id="respostas-2">Respostas</h3>
-<ul>
-<li>O id passado não existe<pre><code><code><div>[]
+  <hr>
+  <p><code class="method">GET</code> <strong>/company/categories</strong></p>
+  <h3 id="mostra-todas-as-categorias-sem-exceção-de-uma-empresa">Mostra todas as categorias, sem exceção, de uma
+    empresa.</h3>
+  <h3 id="parâmetros-2">Parâmetros</h3>
+  <ul>
+    <li>company_id
+      <ul>
+        <li>O <code>id</code> da empresa dona do recurso</li>
+      </ul>
+    </li>
+  </ul>
+  <h3 id="respostas-2">Respostas</h3>
+  <ul>
+    <li>O id passado não existe
+      <pre><code><code><div>[]
 </div></code></code></pre>
-</li>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>[
+    </li>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;domain&quot;: &quot;http://localhost:3010&quot;,
@@ -176,52 +200,53 @@
   }
 ]
 </div></code></code></pre>
-<hr>
-<h2 id="post-alterar-banner"><code>POST</code> <strong>/alterar-banner</strong></h2>
-<ul>
-<li>JWT - Obrigatório</li>
-</ul>
-<h3 id="mostra-todas-as-categorias-sem-exceção-de-uma-empresa-1">Mostra todas as categorias, sem exceção, de uma empresa.</h3>
-<blockquote>
-<h3 id="parâmetros-3">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>company_id
-<ul>
-<li>O <code>id</code> da empresa dona do recurso</li>
-</ul>
-</li>
-<li>type</li>
-<li>O tipo, que poderá ser
-<ul>
-<li>logo</li>
-<li>banner</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-3">Respostas</h3>
-</blockquote>
-<ul>
-<li>
-<p>O arquivo não foi anexado</p>
-<pre><code><code><div>{
+  <hr>
+  <h2 id="post-alterar-banner"><code>POST</code> <strong>/alterar-banner</strong></h2>
+  <ul>
+    <li>JWT - Obrigatório</li>
+  </ul>
+  <h3 id="mostra-todas-as-categorias-sem-exceção-de-uma-empresa-1">Mostra todas as categorias, sem exceção, de uma
+    empresa.</h3>
+  <blockquote>
+    <h3 id="parâmetros-3">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>company_id
+      <ul>
+        <li>O <code>id</code> da empresa dona do recurso</li>
+      </ul>
+    </li>
+    <li>type</li>
+    <li>O tipo, que poderá ser
+      <ul>
+        <li>logo</li>
+        <li>banner</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-3">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p>O arquivo não foi anexado</p>
+      <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;FILE_NOT_UPLOADED&quot;
 }
 </div></code></code></pre>
-</li>
-<li>
-<p>O <code>id</code> da empresa dona do recurso não existe</p>
-<pre><code><code><div>{
+    </li>
+    <li>
+      <p>O <code>id</code> da empresa dona do recurso não existe</p>
+      <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;COMPANY_NOT_EXISTS&quot;
 }
 </div></code></code></pre>
-</li>
-<li>
-<p>Em caso de sucesso</p>
-<pre><code><code><div>{
+    </li>
+    <li>
+      <p>Em caso de sucesso</p>
+      <pre><code><code><div>{
 &quot;error&quot;: false,
 &quot;companyImage&quot;: {
     &quot;name&quot;: &quot;39611b95-038b-4925-b2d1-80e782dfc2b1&quot;,
@@ -234,61 +259,66 @@
 }
 }
 </div></code></code></pre>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>mostrar-banner/:path</strong></p>
-</blockquote>
-<h3 id="mostra-o-banner-da-empresa">Mostra o banner da empresa</h3>
-<blockquote>
-<h3 id="parâmetros-4">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>path
-<ul>
-<li>o nome da imagem completo
-<ul>
-<li>Detalhe: no banco, é passado o nome da imagem sem sufixo à frente, mas, no servidor, são armazenadas duas <strong>imagens</strong> com os respectivos nomes:
-<ul>
-<li>imagename_original.extensão (400 pixels ~)</li>
-<li>imagename_placeholder.extensão (10 pixels)</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p>Ou seja, deve ser passado, no path, o nome completo, ou com original, na frente ou placeholder.
-Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-80e782dfc2b1</code>, então, o <code>path</code> deverá ter
-<strong>39611b95-038b-4925-b2d1-80e782dfc2b1_original.png</strong> ou
-<strong>39611b95-038b-4925-b2d1-80e782dfc2b1_placeholder.png</strong>.</p>
-<blockquote>
-<h3 id="respostas-4">Respostas</h3>
-</blockquote>
-<ul>
-<li>Se o parâmetro não for passado<pre><code><code><div>E_ROUTE_NOT_FOUND: Route not found GET /mostrar-banner/
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>mostrar-banner/:path</strong></p>
+  </blockquote>
+  <h3 id="mostra-o-banner-da-empresa">Mostra o banner da empresa</h3>
+  <blockquote>
+    <h3 id="parâmetros-4">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>path
+      <ul>
+        <li>o nome da imagem completo
+          <ul>
+            <li>Detalhe: no banco, é passado o nome da imagem sem sufixo à frente, mas, no servidor, são armazenadas
+              duas <strong>imagens</strong> com os respectivos nomes:
+              <ul>
+                <li>imagename_original.extensão (400 pixels ~)</li>
+                <li>imagename_placeholder.extensão (10 pixels)</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p>Ou seja, deve ser passado, no path, o nome completo, ou com original, na frente ou placeholder.
+    Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-80e782dfc2b1</code>, então, o
+    <code>path</code> deverá ter
+    <strong>39611b95-038b-4925-b2d1-80e782dfc2b1_original.png</strong> ou
+    <strong>39611b95-038b-4925-b2d1-80e782dfc2b1_placeholder.png</strong>.
+  </p>
+  <blockquote>
+    <h3 id="respostas-4">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>Se o parâmetro não for passado
+      <pre><code><code><div>E_ROUTE_NOT_FOUND: Route not found GET /mostrar-banner/
 </div></code></code></pre>
-</li>
-<li>Se o parâmetro for passado, mas o recurso não existir no <code>banco de dados</code><pre><code><code><div>404: Not Found
+    </li>
+    <li>Se o parâmetro for passado, mas o recurso não existir no <code>banco de dados</code>
+      <pre><code><code><div>404: Not Found
 </div></code></code></pre>
-</li>
-<li>Em caso de sucesso
-<ul>
-<li>A imagem na tela</li>
-</ul>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/estados</strong></p>
-</blockquote>
-<h2 id="mostra-um-array-de-objeto">Mostra um array de objeto</h2>
-<blockquote>
-<h3 id="respostas-5">Respostas</h3>
-</blockquote>
-<pre><code><code><div>[
+    </li>
+    <li>Em caso de sucesso
+      <ul>
+        <li>A imagem na tela</li>
+      </ul>
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/estados</strong></p>
+  </blockquote>
+  <h2 id="mostra-um-array-de-objeto">Mostra um array de objeto</h2>
+  <blockquote>
+    <h3 id="respostas-5">Respostas</h3>
+  </blockquote>
+  <pre><code><code><div>[
     {
         &quot;est_id&quot;: 1,
         &quot;pais_id&quot;: 1,
@@ -309,88 +339,89 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 ]
 
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/buscar-cidades-por-estado</strong></p>
-</blockquote>
-<h2 id="mostra-cidades-por-estado">Mostra cidades por estado</h2>
-<blockquote>
-<h3 id="parâmetros-5">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>
-<p><code>estado_id *</code></p>
-<ul>
-<li>O id do estado</li>
-</ul>
-</li>
-<li>
-<blockquote>
-<h3 id="respostas-6">Respostas</h3>
-</blockquote>
-</li>
-<li>
-<p>O id do estado não foi passado</p>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/buscar-cidades-por-estado</strong></p>
+  </blockquote>
+  <h2 id="mostra-cidades-por-estado">Mostra cidades por estado</h2>
+  <blockquote>
+    <h3 id="parâmetros-5">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p><code class="method">estado_id *</code></p>
+      <ul>
+        <li>O id do estado</li>
+      </ul>
+    </li>
+    <li>
+      <blockquote>
+        <h3 id="respostas-6">Respostas</h3>
+      </blockquote>
+    </li>
+    <li>
+      <p>O id do estado não foi passado</p>
+      <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;ESTADO_FIELD_IS_REQUIRED&quot;
 }
 </div></code></code></pre>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/order-status-client/:user_id</strong></p>
-</blockquote>
-<h2 id="descrição">Descrição</h2>
-<blockquote>
-<h3 id="parâmetros-6">Parâmetros</h3>
-</blockquote>
-<ul>
-<li><code>user_id</code>
-<ul>
-<li>O <code>id</code> do usuário dono do recurso</li>
-</ul>
-</li>
-<li>
-<blockquote>
-<h3 id="respostas-7">Respostas</h3>
-</blockquote>
-</li>
-</ul>
-<hr>
-<blockquote>
-<h1 id="get-productget-product-by-idproduct_id"><code>GET</code> <strong>product/get-product-by-id/:product_id</strong></h1>
-</blockquote>
-<ul>
-<li>JWT</li>
-</ul>
-<h2 id="buscar-um-produto-pelo-seu-id">Buscar um produto pelo seu id</h2>
-<blockquote>
-<h3 id="parâmetros-7">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>
-<p><code>product_id</code></p>
-<ul>
-<li>O <code>id</code> do produto</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-8">Respostas</h3>
-</blockquote>
-<ul>
-<li>
-<p>Parâmetro não foi passado</p>
-<pre><code class="language-HttpException"><code><div>E_ROUTE_NOT_FOUND: Route not found GET /product/get-product-by-id/
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/order-status-client/:user_id</strong></p>
+  </blockquote>
+  <h2 id="descrição">Descrição</h2>
+  <blockquote>
+    <h3 id="parâmetros-6">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li><code>user_id</code>
+      <ul>
+        <li>O <code>id</code> do usuário dono do recurso</li>
+      </ul>
+    </li>
+    <li>
+      <blockquote>
+        <h3 id="respostas-7">Respostas</h3>
+      </blockquote>
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <h1 id="get-productget-product-by-idproduct_id"><code>GET</code>
+      <strong>product/get-product-by-id/:product_id</strong></h1>
+  </blockquote>
+  <ul>
+    <li>JWT</li>
+  </ul>
+  <h2 id="buscar-um-produto-pelo-seu-id">Buscar um produto pelo seu id</h2>
+  <blockquote>
+    <h3 id="parâmetros-7">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p><code>product_id</code></p>
+      <ul>
+        <li>O <code>id</code> do produto</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-8">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p>Parâmetro não foi passado</p>
+      <pre><code class="language-HttpException"><code><div>E_ROUTE_NOT_FOUND: Route not found GET /product/get-product-by-id/
 </div></code></code></pre>
-</li>
-<li>
-<p>Em caso de sucesso</p>
-</li>
-</ul>
-<pre><code><code><div>{
+    </li>
+    <li>
+      <p>Em caso de sucesso</p>
+    </li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;product&quot;: {
     &quot;id&quot;: 1,
@@ -428,24 +459,25 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 }
 </div></code></code></pre>
-<ul>
-<li>O <code>id</code> do produto não existe<pre><code><code><div>[]
+  <ul>
+    <li>O <code>id</code> do produto não existe
+      <pre><code><code><div>[]
 </div></code></code></pre>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/product</strong></p>
-</blockquote>
-<ul>
-<li><strong>JWT é obrigatório</strong></li>
-</ul>
-<h2 id="cria-um-produto">Cria um produto</h2>
-<blockquote>
-<h3 id="parâmetros-8">Parâmetros</h3>
-</blockquote>
-<p>Deve ser passado um <code>json</code>:</p>
-<pre><code><code><div>{
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/product</strong></p>
+  </blockquote>
+  <ul>
+    <li><strong>JWT é obrigatório</strong></li>
+  </ul>
+  <h2 id="cria-um-produto">Cria um produto</h2>
+  <blockquote>
+    <h3 id="parâmetros-8">Parâmetros</h3>
+  </blockquote>
+  <p>Deve ser passado um <code>json</code>:</p>
+  <pre><code><code><div>{
     &quot;name&quot;:&quot;&quot;,
     &quot;active&quot;:&quot;&quot;,
     &quot;price&quot;:&quot;&quot;,
@@ -457,56 +489,57 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
     &quot;uuid&quot;:&quot;&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><code>name</code> (String)
-<ul>
-<li>O nome do produto</li>
-</ul>
-</li>
-<li><code>active</code> (boolean)
-<ul>
-<li>Definirá se o produto estará visível ou não área do parceiro</li>
-</ul>
-</li>
-<li><code>price</code> (float)
-<ul>
-<li>O preço do produto</li>
-</ul>
-</li>
-<li><code>amount</code> (int)
-<ul>
-<li>A quantidade do produto</li>
-</ul>
-</li>
-<li><code>description</code> (string)
-<ul>
-<li>A descrição do produto</li>
-</ul>
-</li>
-<li><code>category_id</code> (int)
-<ul>
-<li>A categoria à qual esse produto pertence</li>
-</ul>
-</li>
-<li><code>company_id</code> (int)
-<ul>
-<li>O <code>id</code> da empresa dona do recurso</li>
-</ul>
-</li>
-<li><code>measure_id</code> (int)
-<ul>
-<li>A medida do produto</li>
-</ul>
-</li>
-<li><code>uuid</code> (string) - Deve ser gerado no cliente, pois o mesmo será passado tanto para o firebase quanto para o banco, esse se responsabilizará pelo relacionamento de ambos.</li>
-</ul>
-<blockquote>
-<h3 id="respostas-9">Respostas</h3>
-</blockquote>
-<ul>
-<li>
-<p>Em caso de sucesso</p>
-<pre><code><code><div>{
+  <ul>
+    <li><code>name</code> (String)
+      <ul>
+        <li>O nome do produto</li>
+      </ul>
+    </li>
+    <li><code>active</code> (boolean)
+      <ul>
+        <li>Definirá se o produto estará visível ou não área do parceiro</li>
+      </ul>
+    </li>
+    <li><code>price</code> (float)
+      <ul>
+        <li>O preço do produto</li>
+      </ul>
+    </li>
+    <li><code>amount</code> (int)
+      <ul>
+        <li>A quantidade do produto</li>
+      </ul>
+    </li>
+    <li><code>description</code> (string)
+      <ul>
+        <li>A descrição do produto</li>
+      </ul>
+    </li>
+    <li><code>category_id</code> (int)
+      <ul>
+        <li>A categoria à qual esse produto pertence</li>
+      </ul>
+    </li>
+    <li><code>company_id</code> (int)
+      <ul>
+        <li>O <code>id</code> da empresa dona do recurso</li>
+      </ul>
+    </li>
+    <li><code>measure_id</code> (int)
+      <ul>
+        <li>A medida do produto</li>
+      </ul>
+    </li>
+    <li><code>uuid</code> (string) - Deve ser gerado no cliente, pois o mesmo será passado tanto para o firebase quanto
+      para o banco, esse se responsabilizará pelo relacionamento de ambos.</li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-9">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p>Em caso de sucesso</p>
+      <pre><code><code><div>{
   &quot;product&quot;: {
       &quot;name&quot;: &quot;ARROZ INTEGRAL&quot;,
       &quot;price&quot;: 10.1,
@@ -531,21 +564,21 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 }
 </div></code></code></pre>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>PUT</code> <strong>/product</strong></p>
-</blockquote>
-<ul>
-<li><strong>JWT é obrigatório</strong></li>
-</ul>
-<h2 id="atualiza-um-produto">Atualiza um produto</h2>
-<blockquote>
-<h3 id="parâmetros-9">Parâmetros</h3>
-</blockquote>
-<p>Deve ser passado um <code>json</code>:</p>
-<pre><code><code><div>{
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">PUT</code> <strong>/product</strong></p>
+  </blockquote>
+  <ul>
+    <li><strong>JWT é obrigatório</strong></li>
+  </ul>
+  <h2 id="atualiza-um-produto">Atualiza um produto</h2>
+  <blockquote>
+    <h3 id="parâmetros-9">Parâmetros</h3>
+  </blockquote>
+  <p>Deve ser passado um <code>json</code>:</p>
+  <pre><code><code><div>{
 	&quot;id&quot;:1,
 	&quot;name&quot;: &quot;Arroz Integral&quot;,
 	&quot;active&quot;: &quot;1&quot;,
@@ -565,90 +598,90 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 	}
 }
 </div></code></code></pre>
-<ul>
-<li><code>id</code> (int)
-<ul>
-<li>O id do produto</li>
-</ul>
-</li>
-<li><code>name</code> (String)
-<ul>
-<li>O nome do produto</li>
-</ul>
-</li>
-<li><code>active</code> (boolean)
-<ul>
-<li>Definirá se o produto estará visível ou não área do parceiro</li>
-</ul>
-</li>
-<li><code>price</code> (float)
-<ul>
-<li>O preço do produto</li>
-</ul>
-</li>
-<li><code>amount</code> (int)
-<ul>
-<li>A quantidade do produto</li>
-</ul>
-</li>
-<li><code>description</code> (string)
-<ul>
-<li>A descrição do produto</li>
-</ul>
-</li>
-<li><code>category</code> (objeto)
-<ul>
-<li>A categoria à qual esse produto pertence
-<ul>
-<li>Deverá passar obrigatoriamente esta chave cujo valor deverá ser um <code>inteiro</code>:
-<ul>
-<li>value</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>company_id</code> (int)
-<ul>
-<li>O <code>id</code> da empresa dona do recurso</li>
-</ul>
-</li>
-<li><code>measure</code> (objeto)
-<ul>
-<li>A medida do produto
-<ul>
-<li>deve ser passado obrigatoriamente, estes campos:
-<ul>
-<li>id</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>stock</code> (objeto) - Deve ser gerado no cliente. O objeto deverá ter, obrigatoriamente, estes campos:
-<ul>
-<li>quantidade</li>
-<li>preco</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-10">Respostas</h3>
-</blockquote>
-<ul>
-<li><strong>O produto não existe</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><code>id</code> (int)
+      <ul>
+        <li>O id do produto</li>
+      </ul>
+    </li>
+    <li><code>name</code> (String)
+      <ul>
+        <li>O nome do produto</li>
+      </ul>
+    </li>
+    <li><code>active</code> (boolean)
+      <ul>
+        <li>Definirá se o produto estará visível ou não área do parceiro</li>
+      </ul>
+    </li>
+    <li><code>price</code> (float)
+      <ul>
+        <li>O preço do produto</li>
+      </ul>
+    </li>
+    <li><code>amount</code> (int)
+      <ul>
+        <li>A quantidade do produto</li>
+      </ul>
+    </li>
+    <li><code>description</code> (string)
+      <ul>
+        <li>A descrição do produto</li>
+      </ul>
+    </li>
+    <li><code>category</code> (objeto)
+      <ul>
+        <li>A categoria à qual esse produto pertence
+          <ul>
+            <li>Deverá passar obrigatoriamente esta chave cujo valor deverá ser um <code>inteiro</code>:
+              <ul>
+                <li>value</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><code>company_id</code> (int)
+      <ul>
+        <li>O <code>id</code> da empresa dona do recurso</li>
+      </ul>
+    </li>
+    <li><code>measure</code> (objeto)
+      <ul>
+        <li>A medida do produto
+          <ul>
+            <li>deve ser passado obrigatoriamente, estes campos:
+              <ul>
+                <li>id</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><code>stock</code> (objeto) - Deve ser gerado no cliente. O objeto deverá ter, obrigatoriamente, estes campos:
+      <ul>
+        <li>quantidade</li>
+        <li>preco</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-10">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li><strong>O produto não existe</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PRODUCT_NOT_EXISTS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;id&quot;: 1,
   &quot;name&quot;: &quot;ARROZ INTEGRAL&quot;,
   &quot;price&quot;: 10.1,
@@ -663,86 +696,86 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   &quot;updated_at&quot;: &quot;2021-01-09 18:40:45&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/product/delete-image</strong></p>
-</blockquote>
-<ul>
-<li><strong>JWT é obrigatório</strong></li>
-</ul>
-<h2 id="excluir-uma-imagem-de-um-produto">Excluir uma imagem de um produto</h2>
-<blockquote>
-<h3 id="parâmetros-10">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>
-<p><strong><code>image_id</code></strong></p>
-<ul>
-<li>o <code>id</code> da imagem</li>
-</ul>
-</li>
-<li>
-<p><strong><code>company_id</code></strong></p>
-<ul>
-<li>O <code>id</code> da empresa dona do recurso</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-11">Respostas</h3>
-</blockquote>
-<ul>
-<li>A image não existe</li>
-</ul>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/product/delete-image</strong></p>
+  </blockquote>
+  <ul>
+    <li><strong>JWT é obrigatório</strong></li>
+  </ul>
+  <h2 id="excluir-uma-imagem-de-um-produto">Excluir uma imagem de um produto</h2>
+  <blockquote>
+    <h3 id="parâmetros-10">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p><strong><code>image_id</code></strong></p>
+      <ul>
+        <li>o <code>id</code> da imagem</li>
+      </ul>
+    </li>
+    <li>
+      <p><strong><code>company_id</code></strong></p>
+      <ul>
+        <li>O <code>id</code> da empresa dona do recurso</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-11">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>A image não existe</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;NOT_POSSIBLE_DELETE_IMAGE&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;message&quot;: &quot;SUCCESS&quot;,
   &quot;data&quot;: 1
 }
 </div></code></code></pre>
-<ul>
-<li>Não foi passado um <strong><code>id</code></strong> válido de uma empresa.</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Não foi passado um <strong><code>id</code></strong> válido de uma empresa.</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;USER_NOT_LOGGED&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/products-by-category-id</strong></p>
-</blockquote>
-<h2 id="buscar-produtos-por-uma-categoria-específica">Buscar produtos por uma categoria específica</h2>
-<blockquote>
-<h3 id="parâmetros-11">Parâmetros</h3>
-</blockquote>
-<ul>
-<li><strong><code>category_id</code></strong>
-<ul>
-<li>O <code>id</code> da categoria</li>
-</ul>
-</li>
-<li><strong><code>company_id</code></strong>
-<ul>
-<li>O <code>id</code> da empresa</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-12">Respostas</h3>
-</blockquote>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>[
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/products-by-category-id</strong></p>
+  </blockquote>
+  <h2 id="buscar-produtos-por-uma-categoria-específica">Buscar produtos por uma categoria específica</h2>
+  <blockquote>
+    <h3 id="parâmetros-11">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li><strong><code>category_id</code></strong>
+      <ul>
+        <li>O <code>id</code> da categoria</li>
+      </ul>
+    </li>
+    <li><strong><code>company_id</code></strong>
+      <ul>
+        <li>O <code>id</code> da empresa</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-12">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;name&quot;: &quot;ARROZ INTEGRAL&quot;,
@@ -807,83 +840,83 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 ]
 </div></code></code></pre>
-<ul>
-<li>A categoria não existe</li>
-</ul>
-<pre><code><code><div>[]
+  <ul>
+    <li>A categoria não existe</li>
+  </ul>
+  <pre><code><code><div>[]
 </div></code></code></pre>
-<ul>
-<li>A empresa não existe</li>
-</ul>
-<pre><code><code><div>[]
+  <ul>
+    <li>A empresa não existe</li>
+  </ul>
+  <pre><code><code><div>[]
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/product/detalhe</strong></p>
-</blockquote>
-<h2 id="mostra-o-produto-e-seus-detalhes-como">Mostra o produto e seus detalhes, como</h2>
-<ul>
-<li>Estoque</li>
-<li>medida</li>
-<li>empresa</li>
-<li>Entre outros</li>
-</ul>
-<blockquote>
-<h3 id="parâmetros-12">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>
-<p><code>company_url</code> (string)</p>
-<ul>
-<li>a url (slug) da empresa</li>
-</ul>
-</li>
-<li>
-<p><code>product_id</code> (int)</p>
-<ul>
-<li>O id do produto</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-13">Respostas</h3>
-</blockquote>
-<ul>
-<li>Se pelo menos um dos parâmetros não forem passados</li>
-</ul>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/product/detalhe</strong></p>
+  </blockquote>
+  <h2 id="mostra-o-produto-e-seus-detalhes-como">Mostra o produto e seus detalhes, como</h2>
+  <ul>
+    <li>Estoque</li>
+    <li>medida</li>
+    <li>empresa</li>
+    <li>Entre outros</li>
+  </ul>
+  <blockquote>
+    <h3 id="parâmetros-12">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p><code>company_url</code> (string)</p>
+      <ul>
+        <li>a url (slug) da empresa</li>
+      </ul>
+    </li>
+    <li>
+      <p><code>product_id</code> (int)</p>
+      <ul>
+        <li>O id do produto</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-13">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>Se pelo menos um dos parâmetros não forem passados</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PARAMETERS_NOT_PASS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>A url de empresa não existe</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>A url de empresa não existe</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PRODUCT_NOT_FOUND_3&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>O produto existe, mas não está relacionado à empresa passada.</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>O produto existe, mas não está relacionado à empresa passada.</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PRODUCT_NOT_FOUND_3&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>O produto <strong>não</strong> existe, e a empresa existe ou não.</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>O produto <strong>não</strong> existe, e a empresa existe ou não.</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PRODUCT_NOT_FOUND_1&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;id&quot;: 1,
   &quot;name&quot;: &quot;ARROZ INTEGRAL&quot;,
   &quot;price&quot;: 10.1,
@@ -960,45 +993,47 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
     &quot;company_uuid&quot;: &quot;abe707f3-ee98-49b3-9fbf-fa28cb604c7a&quot;,
     &quot;url_si
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/product/upload/:product_id/:isthumbnail</strong></p>
-</blockquote>
-<h2 id="faz-uploads-de-imagens-para-um-produto-específico">Faz uploads de imagens para um produto específico</h2>
-<p>A estrutura do formulário deve ser to tipo <strong><code>multipart</code></strong> para o parâmetro <strong><code>image[]</code></strong>.</p>
-<blockquote>
-<h3 id="parâmetros-13">Parâmetros</h3>
-</blockquote>
-<ul>
-<li><code>product_id</code>
-<ul>
-<li>O <code>id</code> do produto</li>
-</ul>
-</li>
-<li><code>isthumbnail</code>
-<ul>
-<li>É o nome da imagem que deverá ser a principal imagem do produto
-<ul>
-<li>Por exemplo:<pre><code><code><div>4b839d81-97e6-4b14-a702-f4dce1c4400d.png
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/product/upload/:product_id/:isthumbnail</strong></p>
+  </blockquote>
+  <h2 id="faz-uploads-de-imagens-para-um-produto-específico">Faz uploads de imagens para um produto específico</h2>
+  <p>A estrutura do formulário deve ser to tipo <strong><code>multipart</code></strong> para o parâmetro
+    <strong><code>image[]</code></strong>.</p>
+  <blockquote>
+    <h3 id="parâmetros-13">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li><code>product_id</code>
+      <ul>
+        <li>O <code>id</code> do produto</li>
+      </ul>
+    </li>
+    <li><code>isthumbnail</code>
+      <ul>
+        <li>É o nome da imagem que deverá ser a principal imagem do produto
+          <ul>
+            <li>Por exemplo:
+              <pre><code><code><div>4b839d81-97e6-4b14-a702-f4dce1c4400d.png
 </div></code></code></pre>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>image[]</code>
-<ul>
-<li>Os arquivos (Falta concluir essa parte)</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-14">Respostas</h3>
-</blockquote>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>[
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><code>image[]</code>
+      <ul>
+        <li>Os arquivos (Falta concluir essa parte)</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-14">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;image_name&quot;: &quot;arroz-tipo-1-pacote-5kg-broto-legal-pct.png&quot;,
     &quot;image_ext&quot;: &quot;png&quot;,
@@ -1010,49 +1045,49 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 ]
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/login</strong></p>
-</blockquote>
-<h2 id="inicia-a-sessão-do-cliente-não-é-o-parceiro">Inicia a sessão do cliente (não é o parceiro)</h2>
-<blockquote>
-<h3 id="parâmetros-14">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>email</li>
-<li>password</li>
-</ul>
-<blockquote>
-<h3 id="respostas-15">Respostas</h3>
-</blockquote>
-<ul>
-<li><strong>Se pelo menos um parâmetro não for passado</strong></li>
-</ul>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/login</strong></p>
+  </blockquote>
+  <h2 id="inicia-a-sessão-do-cliente-não-é-o-parceiro">Inicia a sessão do cliente (não é o parceiro)</h2>
+  <blockquote>
+    <h3 id="parâmetros-14">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>email</li>
+    <li>password</li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-15">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li><strong>Se pelo menos um parâmetro não for passado</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PARAMETERS_NOT_PASS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O usuário não existe</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O usuário não existe</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;UserNotFoundException: E_USER_NOT_FOUND: Cannot find user with email as [EMAIL PASSADO]&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>A senha está incorreta</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>A senha está incorreta</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;PasswordMisMatchException: E_PASSWORD_MISMATCH: Cannot verify user password&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;success&quot;: true,
   &quot;token&quot;: {
     &quot;type&quot;: &quot;bearer&quot;,
@@ -1064,51 +1099,52 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/users</strong></p>
-</blockquote>
-<h2 id="cadastra-um-novo-cliente-o-comprador-não-o-parceiro">Cadastra um novo cliente (o comprador, não o parceiro)</h2>
-<blockquote>
-<h3 id="parâmetros-15">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>firstname
-<ul>
-<li>Nome completo</li>
-</ul>
-</li>
-<li>email
-<ul>
-<li>Email (obrigatório)</li>
-</ul>
-</li>
-<li>password
-<ul>
-<li>Senha (obrigatório)</li>
-</ul>
-</li>
-<li>avatar
-<ul>
-<li>imagem principal do cliente</li>
-</ul>
-</li>
-<li>provider_signup
-<ul>
-<li>O tipo de cadastro, poder ser:
-<ul>
-<li>email</li>
-<li>facebook</li>
-<li>google</li>
-<li>github</li>
-<li>twitter</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<p><strong>Exemplo</strong></p>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/users</strong></p>
+  </blockquote>
+  <h2 id="cadastra-um-novo-cliente-o-comprador-não-o-parceiro">Cadastra um novo cliente (o comprador, não o parceiro)
+  </h2>
+  <blockquote>
+    <h3 id="parâmetros-15">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>firstname
+      <ul>
+        <li>Nome completo</li>
+      </ul>
+    </li>
+    <li>email
+      <ul>
+        <li>Email (obrigatório)</li>
+      </ul>
+    </li>
+    <li>password
+      <ul>
+        <li>Senha (obrigatório)</li>
+      </ul>
+    </li>
+    <li>avatar
+      <ul>
+        <li>imagem principal do cliente</li>
+      </ul>
+    </li>
+    <li>provider_signup
+      <ul>
+        <li>O tipo de cadastro, poder ser:
+          <ul>
+            <li>email</li>
+            <li>facebook</li>
+            <li>google</li>
+            <li>github</li>
+            <li>twitter</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Exemplo</strong></p>
+  <pre><code><code><div>{
 &quot;firstname&quot;:&quot;João da Silva Andrade&quot;,
 &quot;email&quot;:&quot;emailexample@gmail.com&quot;,
 &quot;password&quot;:&quot;chkdsk&quot;,
@@ -1116,13 +1152,13 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 &quot;provider_signup&quot;:&quot;email&quot;
 }
 </div></code></code></pre>
-<blockquote>
-<h3 id="respostas-16">Respostas</h3>
-</blockquote>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>{
+  <blockquote>
+    <h3 id="respostas-16">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;token&quot;: {
     &quot;type&quot;: &quot;bearer&quot;,
     &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImlhdCI6MTYxMDI0Mjc4MCwiZXhwIjoxNjEwODQ3NTgwfQ.Lg7IRiUwRq1VLdopnRO9rTE3R7Wr2oBjhSCA26b3pw4&quot;,
@@ -1133,50 +1169,50 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>Ativar um cliente</strong></p>
-</blockquote>
-<ul>
-<li>JWT</li>
-</ul>
-<h2 id="ativa-um-novo-cliente">Ativa um novo cliente</h2>
-<blockquote>
-<h3 id="parâmetros-16">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>
-<blockquote>
-<h3 id="respostas-17">Respostas</h3>
-</blockquote>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/recover_password</strong></p>
-</blockquote>
-<h2 id="envia-um-token-de-segurança-para-o-email-passado">Envia um token de segurança para o email passado.</h2>
-<blockquote>
-<h3 id="parâmetros-17">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>email</li>
-</ul>
-<blockquote>
-<h3 id="respostas-18">Respostas</h3>
-</blockquote>
-<ul>
-<li>
-<p><strong>O email está em branco</strong></p>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>Ativar um cliente</strong></p>
+  </blockquote>
+  <ul>
+    <li>JWT</li>
+  </ul>
+  <h2 id="ativa-um-novo-cliente">Ativa um novo cliente</h2>
+  <blockquote>
+    <h3 id="parâmetros-16">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <blockquote>
+        <h3 id="respostas-17">Respostas</h3>
+      </blockquote>
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/recover_password</strong></p>
+  </blockquote>
+  <h2 id="envia-um-token-de-segurança-para-o-email-passado">Envia um token de segurança para o email passado.</h2>
+  <blockquote>
+    <h3 id="parâmetros-17">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>email</li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-18">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p><strong>O email está em branco</strong></p>
+      <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;EMAIL_IS_EMPTY&quot;
 }
 </div></code></code></pre>
-</li>
-<li>
-<p><strong>Em caso de sucesso</strong></p>
-<pre><code><code><div>{
+    </li>
+    <li>
+      <p><strong>Em caso de sucesso</strong></p>
+      <pre><code><code><div>{
 &quot;error&quot;: false,
 &quot;message&quot;: &quot;SUCCESS&quot;,
 &quot;recoverPassword&quot;: {
@@ -1189,182 +1225,185 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 }
 }
 </div></code></code></pre>
-<p>Após o envio, o cliente deverá acessar seu email para poder gerar a nova senha.</p>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/verify_token</strong></p>
-</blockquote>
-<h2 id="verifica-o-token-gerado-na-rota-recover_password">Verifica o token gerado na rota /recover_password</h2>
-<blockquote>
-<h3 id="parâmetros-18">Parâmetros</h3>
-</blockquote>
-<ul>
-<li>
-<p>token <em><code>(query)</code></em></p>
-<ul>
-<li>É o token gerado na rota (/recover_password) no objeto <code>recoverPassword.token</code>.</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h3 id="respostas-19">Respostas</h3>
-</blockquote>
-<ul>
-<li><strong>Se nenhum parâmetro for passado</strong></li>
-</ul>
-<pre><code><code><div>{
+      <p>Após o envio, o cliente deverá acessar seu email para poder gerar a nova senha.</p>
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/verify_token</strong></p>
+  </blockquote>
+  <h2 id="verifica-o-token-gerado-na-rota-recover_password">Verifica o token gerado na rota /recover_password</h2>
+  <blockquote>
+    <h3 id="parâmetros-18">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li>
+      <p>token <em><code>(query)</code></em></p>
+      <ul>
+        <li>É o token gerado na rota (/recover_password) no objeto <code>recoverPassword.token</code>.</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h3 id="respostas-19">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li><strong>Se nenhum parâmetro for passado</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;TOKEN_NOT_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O token é válido</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O token é válido</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;message&quot;: &quot;TOKEN_IS_VALID&quot;,
   &quot;status&quot;: &quot;SUCCESS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O token não é válido</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O token não é válido</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;TOKEN_NOT_FOUND&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/change_password</strong></p>
-</blockquote>
-<ul>
-<li>JWT</li>
-</ul>
-<h2 id="de-fato-agora-o-usuário-depois-de-ter-passado-nos-passos-das-rotas-recover_password-e-verify_token-ele-poderá-alterar-a-senha">De fato, agora, o usuário, depois de ter passado nos passos das rotas <code>/recover_password</code> e <code>verify_token</code>, ele poderá alterar a senha.</h2>
-<blockquote>
-<h3 id="parâmetros-19">Parâmetros</h3>
-</blockquote>
-<ul>
-<li><strong><code>token</code></strong>
-<ul>
-<li>O token gerado em <code>/recover_password</code></li>
-</ul>
-</li>
-<li><strong><code>password</code></strong>
-<ul>
-<li>A nova senha</li>
-</ul>
-</li>
-<li><strong><code>repeat_password</code></strong>
-<ul>
-<li>A repetição da nova senha</li>
-</ul>
-</li>
-</ul>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/change_password</strong></p>
+  </blockquote>
+  <ul>
+    <li>JWT</li>
+  </ul>
+  <h2
+    id="de-fato-agora-o-usuário-depois-de-ter-passado-nos-passos-das-rotas-recover_password-e-verify_token-ele-poderá-alterar-a-senha">
+    De fato, agora, o usuário, depois de ter passado nos passos das rotas <code>/recover_password</code> e
+    <code>verify_token</code>, ele poderá alterar a senha.</h2>
+  <blockquote>
+    <h3 id="parâmetros-19">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li><strong><code>token</code></strong>
+      <ul>
+        <li>O token gerado em <code>/recover_password</code></li>
+      </ul>
+    </li>
+    <li><strong><code>password</code></strong>
+      <ul>
+        <li>A nova senha</li>
+      </ul>
+    </li>
+    <li><strong><code>repeat_password</code></strong>
+      <ul>
+        <li>A repetição da nova senha</li>
+      </ul>
+    </li>
+  </ul>
+  <pre><code><code><div>{
   &quot;token&quot;:&quot;5c3b48b0-fa59-401d-a226-29dc1d1e8cf9&quot;,
   &quot;password&quot;:&quot;123456&quot;,
   &quot;repeat_password&quot;:&quot;123456&quot;
 }
 </div></code></code></pre>
-<blockquote>
-<h3 id="respostas-20">Respostas</h3>
-</blockquote>
-<ul>
-<li><strong>O <code>password</code> é diferente da <code>repeat_senha</code></strong></li>
-</ul>
-<pre><code><code><div>{
+  <blockquote>
+    <h3 id="respostas-20">Respostas</h3>
+  </blockquote>
+  <ul>
+    <li><strong>O <code>password</code> é diferente da <code>repeat_senha</code></strong></li>
+  </ul>
+  <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;PASSWORDS_NOT_EQUALS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O token não foi passado</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O token não foi passado</strong></li>
+  </ul>
+  <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;TOKEN_NOT_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O token não é valido</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O token não é valido</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;TOKEN_NOT_FOUND&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>{
 &quot;error&quot;: false,
 &quot;message&quot;: &quot;PASSWORD_UPDATED&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>PUT</code> <strong>/user</strong></p>
-</blockquote>
-<ul>
-<li><strong>JWT é obrigatório</strong></li>
-</ul>
-<h2 id="atualiza-os-dados-de-um-cliente-específico">Atualiza os dados de um cliente específico</h2>
-<blockquote>
-<h3 id="parâmetros-20">Parâmetros</h3>
-</blockquote>
-<ul>
-<li><strong>firstname</strong>
-<ul>
-<li>O primeiro nome</li>
-</ul>
-</li>
-<li><strong>lastname</strong>
-<ul>
-<li>O último nome</li>
-</ul>
-</li>
-<li><strong>phone</strong>
-<ul>
-<li>o telefone</li>
-</ul>
-</li>
-<li><strong>address</strong>
-<ul>
-<li>O endereço</li>
-</ul>
-</li>
-<li><strong>number</strong>
-<ul>
-<li>o número da casa</li>
-</ul>
-</li>
-<li><strong>district</strong>
-<ul>
-<li>o bairro</li>
-</ul>
-</li>
-<li><strong>id</strong>
-<ul>
-<li>O <code>id</code> do cliente</li>
-</ul>
-</li>
-<li><strong>uf_id</strong>
-<ul>
-<li>O <code>id</code> do estado</li>
-</ul>
-</li>
-<li><strong>city_id</strong>
-<ul>
-<li>O <code>id</code> da cidade</li>
-</ul>
-</li>
-</ul>
-<p><strong>Exemplo</strong></p>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">PUT</code> <strong>/user</strong></p>
+  </blockquote>
+  <ul>
+    <li><strong>JWT é obrigatório</strong></li>
+  </ul>
+  <h2 id="atualiza-os-dados-de-um-cliente-específico">Atualiza os dados de um cliente específico</h2>
+  <blockquote>
+    <h3 id="parâmetros-20">Parâmetros</h3>
+  </blockquote>
+  <ul>
+    <li><strong>firstname</strong>
+      <ul>
+        <li>O primeiro nome</li>
+      </ul>
+    </li>
+    <li><strong>lastname</strong>
+      <ul>
+        <li>O último nome</li>
+      </ul>
+    </li>
+    <li><strong>phone</strong>
+      <ul>
+        <li>o telefone</li>
+      </ul>
+    </li>
+    <li><strong>address</strong>
+      <ul>
+        <li>O endereço</li>
+      </ul>
+    </li>
+    <li><strong>number</strong>
+      <ul>
+        <li>o número da casa</li>
+      </ul>
+    </li>
+    <li><strong>district</strong>
+      <ul>
+        <li>o bairro</li>
+      </ul>
+    </li>
+    <li><strong>id</strong>
+      <ul>
+        <li>O <code>id</code> do cliente</li>
+      </ul>
+    </li>
+    <li><strong>uf_id</strong>
+      <ul>
+        <li>O <code>id</code> do estado</li>
+      </ul>
+    </li>
+    <li><strong>city_id</strong>
+      <ul>
+        <li>O <code>id</code> da cidade</li>
+      </ul>
+    </li>
+  </ul>
+  <p><strong>Exemplo</strong></p>
+  <pre><code><code><div>{
 	&quot;firstname&quot;: &quot;&quot;,
 	&quot;lastname&quot;: &quot;&quot;,
 	&quot;phone&quot;: &quot;&quot;,
@@ -1376,58 +1415,58 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 	&quot;uf_id&quot;: &quot;&quot;
 }
 </div></code></code></pre>
-<blockquote>
-<h3 id="respostas-21">Respostas</h3>
-</blockquote>
-<pre><code><code><div>{
+  <blockquote>
+    <h3 id="respostas-21">Respostas</h3>
+  </blockquote>
+  <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;FIRSTNAME_NOT_IS_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li></li>
+  </ul>
+  <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;LASTNAME_NOT_IS_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Se o número não for passado ou for menor que 11 caracteres</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Se o número não for passado ou for menor que 11 caracteres</li>
+  </ul>
+  <pre><code><code><div>{
     &quot;error&quot;: true,
     &quot;message&quot;: &quot;PHONE_NOT_IS_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;ADDRESS_NOT_IS_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>O id do usuário não foi passado corretamente.</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>O id do usuário não foi passado corretamente.</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;REQUEST_NOT_VALID_USER&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Se nenhum dado foi atualizado</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Se nenhum dado foi atualizado</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;Nenhum dado foi atualizado&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>Em caso de sucesso, ou de algum dado for alterado.</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Em caso de sucesso, ou de algum dado for alterado.</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;message&quot;: [
     {
@@ -1457,20 +1496,21 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   ]
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/users</strong></p>
-</blockquote>
-<p>JWT é obrigatório</p>
-<h2 id="lista-todos-os-clientes">Lista todos os clientes</h2>
-<blockquote>
-<h2 id="params">Params</h2>
-</blockquote>
-<blockquote>
-<h2 id="responses">Responses</h2>
-</blockquote>
-<ul>
-<li>Em caso de sucesso<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/users</strong></p>
+  </blockquote>
+  <p>JWT é obrigatório</p>
+  <h2 id="lista-todos-os-clientes">Lista todos os clientes</h2>
+  <blockquote>
+    <h2 id="params">Params</h2>
+  </blockquote>
+  <blockquote>
+    <h2 id="responses">Responses</h2>
+  </blockquote>
+  <ul>
+    <li>Em caso de sucesso
+      <pre><code><code><div>{
 &quot;error&quot;: false,
 &quot;message&quot;: [
   {
@@ -1495,31 +1535,31 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 ]
 }
 </div></code></code></pre>
-</li>
-</ul>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/get-user</strong></p>
-</blockquote>
-<p>JWT é obrigatório</p>
-<h2 id="busca-o-usuário-pelo-id-dele">Busca o usuário pelo <code>id</code> dele.</h2>
-<blockquote>
-<h2 id="params-1">Params</h2>
-</blockquote>
-<ul>
-<li><code>user_id</code> <em>(query)</em>
-<ul>
-<li>O ID do usuário</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-1">Responses</h2>
-</blockquote>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>[
+    </li>
+  </ul>
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/get-user</strong></p>
+  </blockquote>
+  <p>JWT é obrigatório</p>
+  <h2 id="busca-o-usuário-pelo-id-dele">Busca o usuário pelo <code>id</code> dele.</h2>
+  <blockquote>
+    <h2 id="params-1">Params</h2>
+  </blockquote>
+  <ul>
+    <li><code>user_id</code> <em>(query)</em>
+      <ul>
+        <li>O ID do usuário</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-1">Responses</h2>
+  </blockquote>
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;firstname&quot;: &quot;Taffarel&quot;,
@@ -1546,60 +1586,60 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 ]
 </div></code></code></pre>
-<ul>
-<li>Algum parâmetro não foi passado:</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>Algum parâmetro não foi passado:</li>
+  </ul>
+  <pre><code><code><div>{
  error: true,
  message: &quot;ANY_PARAMETERS_NOT_PASS&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>PUT</code> <strong>/user/update_password</strong></p>
-</blockquote>
-<p><strong>JWT é obrigatório</strong></p>
-<h2 id="altera-a-senha-do-cliente">Altera a senha do cliente</h2>
-<p><strong>Exemplo:</strong></p>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">PUT</code> <strong>/user/update_password</strong></p>
+  </blockquote>
+  <p><strong>JWT é obrigatório</strong></p>
+  <h2 id="altera-a-senha-do-cliente">Altera a senha do cliente</h2>
+  <p><strong>Exemplo:</strong></p>
+  <pre><code><code><div>{
 &quot;password&quot;:&quot;123456&quot;,
 &quot;confirm_password&quot;:&quot;123456&quot;,
 &quot;actual_password&quot;:&quot;8237459&quot;,
 &quot;id&quot;:1
 }
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-2">Params</h2>
-</blockquote>
-<ul>
-<li><code>password</code>
-<ul>
-<li>A nova senha</li>
-</ul>
-</li>
-<li><code>confirm_password</code>
-<ul>
-<li>Confirmação da nova senha</li>
-</ul>
-</li>
-<li><code>actual_password</code>
-<ul>
-<li>A senha atual</li>
-</ul>
-</li>
-<li><code>id</code>
-<ul>
-<li>O ID do cliente</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-2">Responses</h2>
-</blockquote>
-<ul>
-<li>Em caso de sucesso</li>
-</ul>
-<pre><code><code><div>{
+  <blockquote>
+    <h2 id="params-2">Params</h2>
+  </blockquote>
+  <ul>
+    <li><code>password</code>
+      <ul>
+        <li>A nova senha</li>
+      </ul>
+    </li>
+    <li><code>confirm_password</code>
+      <ul>
+        <li>Confirmação da nova senha</li>
+      </ul>
+    </li>
+    <li><code>actual_password</code>
+      <ul>
+        <li>A senha atual</li>
+      </ul>
+    </li>
+    <li><code>id</code>
+      <ul>
+        <li>O ID do cliente</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-2">Responses</h2>
+  </blockquote>
+  <ul>
+    <li>Em caso de sucesso</li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;message&quot;: &quot;UPDATED_SUCCESSFUL&quot;,
   &quot;token&quot;: {
@@ -1609,68 +1649,68 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 }
 </div></code></code></pre>
-<ul>
-<li>A senha foi passada em branco ou o total de caracteres é igual a zero:</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>A senha foi passada em branco ou o total de caracteres é igual a zero:</li>
+  </ul>
+  <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;PASSWORD_NOT_IS_VALID&quot;
 }
 </div></code></code></pre>
-<ul>
-<li>A nova senha, a confirmação da nova senha e a atual são iguais:</li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li>A nova senha, a confirmação da nova senha e a atual são iguais:</li>
+  </ul>
+  <pre><code><code><div>{
 &quot;error&quot;: true,
 &quot;message&quot;: &quot;NEW_PASSWORD_EQUALS_ACTUAL_PASSWORD&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/update-token-client</strong></p>
-</blockquote>
-<p><strong>JWT é obrigatório</strong></p>
-<h2 id="atualiza-o-token-de-atualização">Atualiza o token de atualização</h2>
-<blockquote>
-<h2 id="params-3">Params</h2>
-</blockquote>
-<ul>
-<li><code>refreshToken</code>
-<ul>
-<li>O token que é gerado na requisição válida no <strong><code>login</code></strong>.</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-3">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/update-token-client</strong></p>
+  </blockquote>
+  <p><strong>JWT é obrigatório</strong></p>
+  <h2 id="atualiza-o-token-de-atualização">Atualiza o token de atualização</h2>
+  <blockquote>
+    <h2 id="params-3">Params</h2>
+  </blockquote>
+  <ul>
+    <li><code>refreshToken</code>
+      <ul>
+        <li>O token que é gerado na requisição válida no <strong><code>login</code></strong>.</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-3">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;type&quot;: &quot;bearer&quot;,
   &quot;token&quot;: &quot;eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOjEsImRhdGEiOnsiaWQiOjEsImZpcnN0bmFtZSI6IlRhZmZhcmVsIiwibGFzdG5hbWUiOiIgIFhhdmllciIsImlzY2hlY2tlZCI6MSwidG9rZW4iOiIyMTc5YjkzOC02NWQzLTRhYzAtYWEwMi05MmU2YzNjYzRkNjYiLCJwaG9uZSI6IjYzOTk5NDgwNjMxIiwiYXZhdGFyIjoiaHR0cDovL3BsYWNlaG9sZC5pdC8zMngzMiIsImRpc3RyaWN0IjoiYXNkZmEiLCJwcm92aWRlcl9zaWdudXAiOiJlbWFpbCIsImVtYWlsIjoidGFmZmFyZWx4YXZpZXI3QGdtYWlsLmNvbSIsImFkZHJlc3MiOiJSdWEgTWFub2VsIE1hdG9zIiwiY3JlYXRlZF9hdCI6IjIwMjEtMDEtMDkgMjI6Mzk6NDAiLCJ1cGRhdGVkX2F0IjoiMjAyMS0wMS0xMCAxMDo1MDoyNCIsImNpdHlfaWQiOjMyMSwidWZfaWQiOjI3LCJudW1iZXIiOiIxNDUifSwiaWF0IjoxNjEwMjkwMTI2LCJleHAiOjE2MTA4OTQ5MjZ9.vXxAMp9KdA9Qcd2kIrsYITL6uk0DO5wEfbgfgYRqq-w&quot;,
   &quot;refreshToken&quot;: &quot;e4ea2387aab263b916dcdc7f3126e5e0sJ6/mJZZhukuVRkZcACdgtgU8lCrK10/NsXYE1sODUQTL07wpDDA2EQ/bnoLOEI6&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Não foi passado o token</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Não foi passado o token</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;InvalidRefreshToken: E_INVALID_JWT_REFRESH_TOKEN: Invalid refresh token undefined&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>order</strong></p>
-</blockquote>
-<p><strong>JWT é obrigatório</strong></p>
-<h2 id="cria-um-novo-pedido">Cria um novo pedido</h2>
-<blockquote>
-<h2 id="examples">Examples</h2>
-</blockquote>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>order</strong></p>
+  </blockquote>
+  <p><strong>JWT é obrigatório</strong></p>
+  <h2 id="cria-um-novo-pedido">Cria um novo pedido</h2>
+  <blockquote>
+    <h2 id="examples">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>{
 	&quot;uuid&quot;: &quot;uuidexample&quot;,
 	&quot;company_id&quot;: 1,
 	&quot;form_payment&quot;: &quot;1&quot;,
@@ -1696,97 +1736,97 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 	&quot;rate&quot;: 10
 }
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-4">Params</h2>
-</blockquote>
-<ul>
-<li>uuid
-<ul>
-<li>uuid gerado no cliente</li>
-</ul>
-</li>
-<li>company_id
-<ul>
-<li>id da empresa onde se está comprando</li>
-</ul>
-</li>
-<li>form_payment
-<ul>
-<li>Forma de pagamento</li>
-</ul>
-</li>
-<li>payback
-<ul>
-<li>Troco</li>
-</ul>
-</li>
-<li>notes
-<ul>
-<li>Obervações</li>
-</ul>
-</li>
-<li>user_id
-<ul>
-<li>Id do cliente</li>
-</ul>
-</li>
-<li>produtos
-<ul>
-<li>Array de objetos contendo:
-<ul>
-<li>units</li>
-<li>price</li>
-<li>puid</li>
-<li>id</li>
-<li>name</li>
-<li>measure</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>city_id
-<ul>
-<li>Id da cidade</li>
-</ul>
-</li>
-<li>uf_id
-<ul>
-<li>ID do estado</li>
-</ul>
-</li>
-<li>address
-<ul>
-<li>Endereço</li>
-</ul>
-</li>
-<li>number
-<ul>
-<li>Número da casa para entrega</li>
-</ul>
-</li>
-<li>district
-<ul>
-<li>Bairro para entrega</li>
-</ul>
-</li>
-<li>phone
-<ul>
-<li>Telefone de quem está pedindo</li>
-</ul>
-</li>
-<li>rate
-<ul>
-<li>Taxa</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-4">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>{
+  <blockquote>
+    <h2 id="params-4">Params</h2>
+  </blockquote>
+  <ul>
+    <li>uuid
+      <ul>
+        <li>uuid gerado no cliente</li>
+      </ul>
+    </li>
+    <li>company_id
+      <ul>
+        <li>id da empresa onde se está comprando</li>
+      </ul>
+    </li>
+    <li>form_payment
+      <ul>
+        <li>Forma de pagamento</li>
+      </ul>
+    </li>
+    <li>payback
+      <ul>
+        <li>Troco</li>
+      </ul>
+    </li>
+    <li>notes
+      <ul>
+        <li>Obervações</li>
+      </ul>
+    </li>
+    <li>user_id
+      <ul>
+        <li>Id do cliente</li>
+      </ul>
+    </li>
+    <li>produtos
+      <ul>
+        <li>Array de objetos contendo:
+          <ul>
+            <li>units</li>
+            <li>price</li>
+            <li>puid</li>
+            <li>id</li>
+            <li>name</li>
+            <li>measure</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li>city_id
+      <ul>
+        <li>Id da cidade</li>
+      </ul>
+    </li>
+    <li>uf_id
+      <ul>
+        <li>ID do estado</li>
+      </ul>
+    </li>
+    <li>address
+      <ul>
+        <li>Endereço</li>
+      </ul>
+    </li>
+    <li>number
+      <ul>
+        <li>Número da casa para entrega</li>
+      </ul>
+    </li>
+    <li>district
+      <ul>
+        <li>Bairro para entrega</li>
+      </ul>
+    </li>
+    <li>phone
+      <ul>
+        <li>Telefone de quem está pedindo</li>
+      </ul>
+    </li>
+    <li>rate
+      <ul>
+        <li>Taxa</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-4">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>{
 	&quot;uuid&quot;: &quot;uuidexample&quot;,
 	&quot;company_id&quot;: 1,
 	&quot;form_payment&quot;: &quot;1&quot;,
@@ -1812,66 +1852,66 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
 	&quot;rate&quot;: 10
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Se o array <code>produtos</code> não existir</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Se o array <code>produtos</code> não existir</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;E_PRODUCTS_IS_EMPTY&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Se faltar algum dos campos acima</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Se faltar algum dos campos acima</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;FIELDS_ADDRESS_CITYID_DISTRICT_PHONE_UFID_ARE_REQUIRED&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Foi passado um uuid que já existe</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Foi passado um uuid que já existe</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;Duplicate entry 'uuidexample_que_ja_existe' for key 'orders_uuid_unique'&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O estoque está vazio</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O estoque está vazio</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;NOT_POSSIBLE_TO_SAVE_ORDER_STOCK_IS_EMPTY&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/order</strong></p>
-</blockquote>
-<p><strong>JWT é obrigatório</strong></p>
-<h2 id="busca-pedidos-para-empresa">Busca pedidos para empresa</h2>
-<blockquote>
-<h2 id="examples-1">Examples</h2>
-</blockquote>
-<pre><code><code><div>http://localhost:3333/order?uuid=uuidexample
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/order</strong></p>
+  </blockquote>
+  <p><strong>JWT é obrigatório</strong></p>
+  <h2 id="busca-pedidos-para-empresa">Busca pedidos para empresa</h2>
+  <blockquote>
+    <h2 id="examples-1">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>http://localhost:3333/order?uuid=uuidexample
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-5">Params</h2>
-</blockquote>
-<ul>
-<li>uuid <em>(query)</em>
-<ul>
-<li>É gerado no ato de criar um novo pedido, está na tabela <code>order</code></li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-5">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>[
+  <blockquote>
+    <h2 id="params-5">Params</h2>
+  </blockquote>
+  <ul>
+    <li>uuid <em>(query)</em>
+      <ul>
+        <li>É gerado no ato de criar um novo pedido, está na tabela <code>order</code></li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-5">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;uuid&quot;: &quot;uuidexample&quot;,
@@ -1983,49 +2023,49 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 ]
 </div></code></code></pre>
-<ul>
-<li><strong>Se a <code>query</code> <code>uuid</code> não for passada</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Se a <code>query</code> <code>uuid</code> não for passada</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;UUID_NOT_PASS&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Se o <code>uuid</code> não existir ou estiver incorreto</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Se o <code>uuid</code> não existir ou estiver incorreto</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;ORDER_NOT_EXISTS&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/order-status-client/:user_id</strong></p>
-</blockquote>
-<h2 id="busca-os-pedidos-para-um-cliente-para">Busca os pedidos para um cliente para</h2>
-<blockquote>
-<h2 id="examples-2">Examples</h2>
-</blockquote>
-<pre><code><code><div>http://localhost:3333/order-client/3
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/order-status-client/:user_id</strong></p>
+  </blockquote>
+  <h2 id="busca-os-pedidos-para-um-cliente-para">Busca os pedidos para um cliente para</h2>
+  <blockquote>
+    <h2 id="examples-2">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>http://localhost:3333/order-client/3
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-6">Params</h2>
-</blockquote>
-<ul>
-<li>id
-<ul>
-<li>O <code>ID</code> do cliente</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-6">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>[
+  <blockquote>
+    <h2 id="params-6">Params</h2>
+  </blockquote>
+  <ul>
+    <li>id
+      <ul>
+        <li>O <code>ID</code> do cliente</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-6">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;uuid&quot;: &quot;uuidexample&quot;,
@@ -2101,40 +2141,41 @@ Exemplo: se no banco tiver uma imagem com o nome <code>39611b95-038b-4925-b2d1-8
   }
 ]
 </div></code></code></pre>
-<ul>
-<li><strong>Não foi passado o parâmetro <code>id</code> na rota</strong></li>
-</ul>
-<pre><code><code><div>HttpException
+  <ul>
+    <li><strong>Não foi passado o parâmetro <code>id</code> na rota</strong></li>
+  </ul>
+  <pre><code><code><div>HttpException
 E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/pedido-para-empresa</strong></p>
-</blockquote>
-<p><strong>JWT é obrigatório</strong></p>
-<h2 id="mostra-os-pedidos-da-empresa-especificada-pelo-id-dela">Mostra os <strong>pedidos</strong> da empresa especificada pelo <code>id</code> dela.</h2>
-<blockquote>
-<h2 id="examples-3">Examples</h2>
-</blockquote>
-<pre><code><code><div>http://localhost:3333/pedido-para-empresa?company_id=1
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/pedido-para-empresa</strong></p>
+  </blockquote>
+  <p><strong>JWT é obrigatório</strong></p>
+  <h2 id="mostra-os-pedidos-da-empresa-especificada-pelo-id-dela">Mostra os <strong>pedidos</strong> da empresa
+    especificada pelo <code>id</code> dela.</h2>
+  <blockquote>
+    <h2 id="examples-3">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>http://localhost:3333/pedido-para-empresa?company_id=1
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-7">Params</h2>
-</blockquote>
-<ul>
-<li><code>company_id</code>
-<ul>
-<li>O id da empresa</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-7">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>[
+  <blockquote>
+    <h2 id="params-7">Params</h2>
+  </blockquote>
+  <ul>
+    <li><code>company_id</code>
+      <ul>
+        <li>O id da empresa</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-7">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;uuid&quot;: &quot;uuidexample&quot;,
@@ -2219,98 +2260,102 @@ E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
   }
 ]
 </div></code></code></pre>
-<ul>
-<li><strong>O parâmetro não é um inteiro</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O parâmetro não é um inteiro</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;NOT_INTEGER&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O id passado não pertence a uma empresa</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O id passado não pertence a uma empresa</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;DADO_NAO_ENCONTRADO&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>A empresa existe, mas não tem pedidos</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>A empresa existe, mas não tem pedidos</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;DADO_NAO_ENCONTRADO&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>O parâmetro não foi passado</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>O parâmetro não foi passado</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;ID_NOT_PASSED&quot;
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>orders/obter-soma-total-por-forma-de-pagamento</strong></p>
-</blockquote>
-<p><strong>JWT é obrigatório</strong></p>
-<h2 id="obter-a-soma-total-por-forma-de-pagamento-especificada-pelo-id">Obter a soma total por forma de pagamento especificada pelo ID</h2>
-<blockquote>
-<h2 id="examples-4">Examples</h2>
-</blockquote>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>orders/obter-soma-total-por-forma-de-pagamento</strong></p>
+  </blockquote>
+  <p><strong>JWT é obrigatório</strong></p>
+  <h2 id="obter-a-soma-total-por-forma-de-pagamento-especificada-pelo-id">Obter a soma total por forma de pagamento
+    especificada pelo ID</h2>
+  <blockquote>
+    <h2 id="examples-4">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>{
  &quot;company_id&quot;:2
 }
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-8">Params</h2>
-</blockquote>
-<ul>
-<li>company*id * *(query)_
-<ul>
-<li>O ID da empresa</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-8">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>
+  <blockquote>
+    <h2 id="params-8">Params</h2>
+  </blockquote>
+  <ul>
+    <li>company*id * *(query)_
+      <ul>
+        <li>O ID da empresa</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-8">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>
 </div></code></code></pre>
-<ul>
-<li><strong>Não tem pedidos pagos</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Não tem pedidos pagos</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: false,
   &quot;message&quot;: []
 }
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>GET</code> <strong>/product-by-company</strong></p>
-</blockquote>
-<h2 id="fixme-por-algum-motivo-o-nome-da-rota-está-product-by-company-mas-mostra-todos-os-produtos-cadastrados--kkkkkkk">FIXME: Por algum motivo, o nome da rota está <code>product-by-company</code>, mas mostra todos os produtos cadastrados. =) kkkkkkk</h2>
-<blockquote>
-<h2 id="examples-5">Examples</h2>
-</blockquote>
-<pre><code><code><div>/product-by-company
+  <hr>
+  <blockquote>
+    <p><code class="method">GET</code> <strong>/product-by-company</strong></p>
+  </blockquote>
+  <h2
+    id="fixme-por-algum-motivo-o-nome-da-rota-está-product-by-company-mas-mostra-todos-os-produtos-cadastrados--kkkkkkk">
+    FIXME: Por algum motivo, o nome da rota está <code>product-by-company</code>, mas mostra todos os produtos
+    cadastrados. =) kkkkkkk</h2>
+  <blockquote>
+    <h2 id="examples-5">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>/product-by-company
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-9">Params</h2>
-<p>nothing</p>
-</blockquote>
-<blockquote>
-<h2 id="responses-9">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>[
+  <blockquote>
+    <h2 id="params-9">Params</h2>
+    <p>nothing</p>
+  </blockquote>
+  <blockquote>
+    <h2 id="responses-9">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>[
   {
     &quot;id&quot;: 1,
     &quot;name&quot;: &quot;ARROZ INTEGRAL&quot;,
@@ -2391,55 +2436,59 @@ E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
   }
 ]
 </div></code></code></pre>
-<hr>
-<blockquote>
-<p><code>POST</code> <strong>/active_user</strong></p>
-</blockquote>
-<h2 id="quando-um-cliente-faz-o-seu-cadastro-por-padrão-a-coluna-ischecked-tem-o-valor-padrão-igual-a-zero-esta-rota-ativa-o-usuário-atualizando-a-coluna-para-o-valor-1">Quando um cliente faz o seu cadastro, por padrão, a coluna <code>ischecked</code> tem o valor padrão igual a zero, esta rota, ativa o usuário atualizando a coluna para o valor <code>1</code>.</h2>
-<blockquote>
-<h2 id="examples-6">Examples</h2>
-</blockquote>
-<pre><code><code><div>{
+  <hr>
+  <blockquote>
+    <p><code class="method">POST</code> <strong>/active_user</strong></p>
+  </blockquote>
+  <h2
+    id="quando-um-cliente-faz-o-seu-cadastro-por-padrão-a-coluna-ischecked-tem-o-valor-padrão-igual-a-zero-esta-rota-ativa-o-usuário-atualizando-a-coluna-para-o-valor-1">
+    Quando um cliente faz o seu cadastro, por padrão, a coluna <code>ischecked</code> tem o valor padrão igual a zero,
+    esta rota, ativa o usuário atualizando a coluna para o valor <code>1</code>.</h2>
+  <blockquote>
+    <h2 id="examples-6">Examples</h2>
+  </blockquote>
+  <pre><code><code><div>{
 	&quot;token&quot;:&quot;2179b938-65d3-4ac0-aa02-92e6c3cc4d66&quot;,
 	&quot;type&quot;:&quot;1&quot;
 }
 </div></code></code></pre>
-<blockquote>
-<h2 id="params-10">Params</h2>
-</blockquote>
-<ul>
-<li><code>token</code>
-<ul>
-<li>é o toquem gerado e salvo no registro do usuário, na coluna.</li>
-</ul>
-</li>
-<li><code>type</code>
-<ul>
-<li>1</li>
-</ul>
-</li>
-</ul>
-<blockquote>
-<h2 id="responses-10">Responses</h2>
-</blockquote>
-<ul>
-<li><strong>Em caso de sucesso</strong></li>
-</ul>
-<pre><code><code><div>Se o usuário não estiver ativo, retornará: USER_ACTIVE; caso contrário, USER_IS_ALREADY_ACTIVE.
+  <blockquote>
+    <h2 id="params-10">Params</h2>
+  </blockquote>
+  <ul>
+    <li><code>token</code>
+      <ul>
+        <li>é o toquem gerado e salvo no registro do usuário, na coluna.</li>
+      </ul>
+    </li>
+    <li><code>type</code>
+      <ul>
+        <li>1</li>
+      </ul>
+    </li>
+  </ul>
+  <blockquote>
+    <h2 id="responses-10">Responses</h2>
+  </blockquote>
+  <ul>
+    <li><strong>Em caso de sucesso</strong></li>
+  </ul>
+  <pre><code><code><div>Se o usuário não estiver ativo, retornará: USER_ACTIVE; caso contrário, USER_IS_ALREADY_ACTIVE.
 </div></code></code></pre>
-<ul>
-<li><strong>Alguma parâmetro não foi passado</strong></li>
-</ul>
-<pre><code><code><div>{
+  <ul>
+    <li><strong>Alguma parâmetro não foi passado</strong></li>
+  </ul>
+  <pre><code><code><div>{
   &quot;error&quot;: true,
   &quot;message&quot;: &quot;QUERIES_NOT_PASSED&quot;
 }
 </div></code></code></pre>
-<ul>
-<li><strong>Se o token for inválido ou não existir.</strong></li>
-</ul>
-<pre><code><code><div>TOKEN_INVALID
+  <ul>
+    <li><strong>Se o token for inválido ou não existir.</strong></li>
+  </ul>
+  <pre><code><code><div>TOKEN_INVALID
 </div></code></code></pre>
 
-    </body>
-    </html>
+</body>
+
+</html>
