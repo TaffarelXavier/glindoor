@@ -77,11 +77,11 @@
     <p>Glossário:</p>
     <ul>
       <li>
-        <strong><code>Clientes</code></strong> - são os clientes que comprarão
+        <strong><code>CLIENTES</code></strong> - são os clientes que comprarão
         no sistema.
       </li>
       <li>
-        <strong><code>Parceiros</code></strong> - são as lojas cadastradas e
+        <strong><code>PARCEIROS</code></strong> - são as lojas cadastradas e
         aptas para vendas.
       </li>
       <li>
@@ -102,16 +102,18 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
-      <div style="font-size: 40px; text-align: center"># APIREST</div>
+    <blockquote style="height: 80px;justify-content: center;">
+      <div style="font-size: 60px; text-align: center !important;"># APIREST</div>
     </blockquote>
     <hr />
 
       <p>
         <code class="method m-post">POST</code>
-        <strong>/company/upadate-catalogo-url</strong> | JWT - Obrigatório
+        <strong>/company/upadate-catalogo-url</strong>
       </p>
-
+      <ul>
+        <li>JWT - Obrigatório</li>
+      </ul>
     <h3 id="atualiza-a-url-de-uma-empresa">Atualiza a url de uma empresa</h3>
     <h3 id="parâmetros">Parâmetros</h3>
     <ul>
@@ -329,11 +331,9 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code> <strong>mostrar-banner/:path</strong>
       </p>
-    </blockquote>
     <h3 id="mostra-o-banner-da-empresa">Mostra o banner da empresa</h3>
     <blockquote>
       <h3 id="parâmetros-4">Parâmetros</h3>
@@ -390,9 +390,7 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p><code class="method m-get">GET</code> <strong>/estados</strong></p>
-    </blockquote>
     <h2 id="mostra-um-array-de-objeto">Mostra um array de objeto</h2>
     <blockquote>
       <h3 id="respostas-5">Respostas</h3>
@@ -419,12 +417,10 @@
 
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code>
         <strong>/buscar-cidades-por-estado</strong>
       </p>
-    </blockquote>
     <h2 id="mostra-cidades-por-estado">Mostra cidades por estado</h2>
     <blockquote>
       <h3 id="parâmetros-5">Parâmetros</h3>
@@ -451,12 +447,10 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code>
         <strong>/order-status-client/:user_id</strong>
       </p>
-    </blockquote>
     <h2 id="descrição">Descrição</h2>
     <blockquote>
       <h3 id="parâmetros-6">Parâmetros</h3>
@@ -475,11 +469,9 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
-      <h1 id="get-productget-product-by-idproduct_id">
-        <code>GET</code> <strong>product/get-product-by-id/:product_id</strong>
-      </h1>
-    </blockquote>
+      <p id="get-productget-product-by-idproduct_id">
+        <code class="method m-get">GET</code> <strong>product/get-product-by-id/:product_id</strong>
+      </p>
     <ul>
       <li>JWT</li>
     </ul>
@@ -554,9 +546,7 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/product</strong></p>
-    </blockquote>
     <ul>
       <li><strong>JWT é obrigatório</strong></li>
     </ul>
@@ -666,9 +656,7 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p><code class="method m-put">PUT</code> <strong>/product</strong></p>
-    </blockquote>
     <ul>
       <li><strong>JWT é obrigatório</strong></li>
     </ul>
@@ -812,16 +800,14 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-post">POST</code> <strong>/product/delete-image</strong>
       </p>
-    </blockquote>
     <ul>
       <li><strong>JWT é obrigatório</strong></li>
     </ul>
     <h2 id="excluir-uma-imagem-de-um-produto">
-      Excluir uma imagem de um produto
+      Exclui uma imagem de um produto
     </h2>
     <blockquote>
       <h3 id="parâmetros-10">Parâmetros</h3>
@@ -876,12 +862,10 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code>
         <strong>/products-by-category-id</strong>
       </p>
-    </blockquote>
     <h2 id="buscar-produtos-por-uma-categoria-específica">
       Buscar produtos por uma categoria específica
     </h2>
@@ -984,9 +968,7 @@
     <pre><code><code><div>[]
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-get">GET</code> <strong>/product/detalhe</strong></p>
-    </blockquote>
     <h2 id="mostra-o-produto-e-seus-detalhes-como">
       Mostra o produto e seus detalhes, como
     </h2>
@@ -1129,12 +1111,10 @@
     &quot;url_si
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-post">POST</code>
         <strong>/product/upload/:product_id/:isthumbnail</strong>
       </p>
-    </blockquote>
     <h2 id="faz-uploads-de-imagens-para-um-produto-específico">
       Faz uploads de imagens para um produto específico
     </h2>
@@ -1195,9 +1175,7 @@
 ]
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/login</strong></p>
-    </blockquote>
     <h2 id="inicia-a-sessão-do-cliente-não-é-o-parceiro">
       Inicia a sessão do cliente (não é o parceiro)
     </h2>
@@ -1251,9 +1229,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/users</strong></p>
-    </blockquote>
     <h2 id="cadastra-um-novo-cliente-o-comprador-não-o-parceiro">
       Cadastra um novo cliente (o comprador, não o parceiro)
     </h2>
@@ -1328,9 +1304,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>Ativar um cliente</strong></p>
-    </blockquote>
     <ul>
       <li>JWT</li>
     </ul>
@@ -1346,9 +1320,7 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/recover_password</strong></p>
-    </blockquote>
     <h2 id="envia-um-token-de-segurança-para-o-email-passado">
       Envia um token de segurança para o email passado.
     </h2>
@@ -1392,9 +1364,7 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/verify_token</strong></p>
-    </blockquote>
     <h2 id="verifica-o-token-gerado-na-rota-recover_password">
       Verifica o token gerado na rota /recover_password
     </h2>
@@ -1443,9 +1413,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/change_password</strong></p>
-    </blockquote>
     <ul>
       <li>JWT</li>
     </ul>
@@ -1526,9 +1494,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-put">PUT</code> <strong>/user</strong></p>
-    </blockquote>
     <ul>
       <li><strong>JWT é obrigatório</strong></li>
     </ul>
@@ -1689,9 +1655,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-get">GET</code> <strong>/users</strong></p>
-    </blockquote>
     <p>JWT é obrigatório</p>
     <h2 id="lista-todos-os-clientes">Lista todos os clientes</h2>
     <blockquote>
@@ -1731,9 +1695,7 @@
       </li>
     </ul>
     <hr />
-    <blockquote>
       <p><code class="method m-get">GET</code> <strong>/get-user</strong></p>
-    </blockquote>
     <p>JWT é obrigatório</p>
     <h2 id="busca-o-usuário-pelo-id-dele">
       Busca o usuário pelo <code>id</code> dele.
@@ -1791,11 +1753,9 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-put">PUT</code> <strong>/user/update_password</strong>
       </p>
-    </blockquote>
     <p><strong>JWT é obrigatório</strong></p>
     <h2 id="altera-a-senha-do-cliente">Altera a senha do cliente</h2>
     <p><strong>Exemplo:</strong></p>
@@ -1870,11 +1830,9 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-post">POST</code> <strong>/update-token-client</strong>
       </p>
-    </blockquote>
     <p><strong>JWT é obrigatório</strong></p>
     <h2 id="atualiza-o-token-de-atualização">
       Atualiza o token de atualização
@@ -1915,9 +1873,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>order</strong></p>
-    </blockquote>
     <p><strong>JWT é obrigatório</strong></p>
     <h2 id="cria-um-novo-pedido">Cria um novo pedido</h2>
     <blockquote>
@@ -2115,9 +2071,7 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-get">GET</code> <strong>/order</strong></p>
-    </blockquote>
     <p><strong>JWT é obrigatório</strong></p>
     <h2 id="busca-pedidos-para-empresa">Busca pedidos para empresa</h2>
     <blockquote>
@@ -2280,12 +2234,10 @@
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code>
         <strong>/order-status-client/:user_id</strong>
       </p>
-    </blockquote>
     <h2 id="busca-os-pedidos-para-um-cliente-para">
       Busca os pedidos para um cliente para
     </h2>
@@ -2396,11 +2348,9 @@
 E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code> <strong>/pedido-para-empresa</strong>
       </p>
-    </blockquote>
     <p><strong>JWT é obrigatório</strong></p>
     <h2 id="mostra-os-pedidos-da-empresa-especificada-pelo-id-dela">
       Mostra os <strong>pedidos</strong> da empresa especificada pelo
@@ -2546,12 +2496,10 @@ E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-post">POST</code>
         <strong>orders/obter-soma-total-por-forma-de-pagamento</strong>
       </p>
-    </blockquote>
     <p><strong>JWT é obrigatório</strong></p>
     <h2 id="obter-a-soma-total-por-forma-de-pagamento-especificada-pelo-id">
       Obter a soma total por forma de pagamento especificada pelo ID
@@ -2591,11 +2539,9 @@ E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
 }
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p>
         <code class="method m-get">GET</code> <strong>/product-by-company</strong>
       </p>
-    </blockquote>
     <h2
       id="fixme-por-algum-motivo-o-nome-da-rota-está-product-by-company-mas-mostra-todos-os-produtos-cadastrados--kkkkkkk"
     >
@@ -2700,9 +2646,7 @@ E_ROUTE_NOT_FOUND: Route not found GET /order-status-client/
 ]
 </div></code></code></pre>
     <hr />
-    <blockquote>
       <p><code class="method m-post">POST</code> <strong>/active_user</strong></p>
-    </blockquote>
     <h2
       id="quando-um-cliente-faz-o-seu-cadastro-por-padrão-a-coluna-ischecked-tem-o-valor-padrão-igual-a-zero-esta-rota-ativa-o-usuário-atualizando-a-coluna-para-o-valor-1"
     >
